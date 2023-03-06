@@ -1,0 +1,6 @@
+---
+- include_tasks: install_packages.yml
+- include_tasks: install.yml
+  when: not skip_install is defined
+- include_tasks: configure.yml
+  when: configure_user is defined
