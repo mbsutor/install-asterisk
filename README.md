@@ -18,7 +18,7 @@ Installation via ansible-galaxy
 
 Use ansible galaxy to download this role from:
 
-ansible-galaxy install msutor.install-asterisk
+ansible-galaxy install mbsutor.install-asterisk
 
 Exemplary playbook
 ----------------
@@ -27,7 +27,7 @@ Here is an easy way to use it, after installing via ansible-galaxy, to install A
 
  - hosts: servers
    roles:
-     - { role: msutor.install-asterisk }
+     - { role: mbsutor.install-asterisk }
 
 
 Use via git clone
@@ -35,7 +35,7 @@ Use via git clone
 
 Alternatively, you can clone this repository and use the "test.yml" playbook example to test it and base your usage on that.
 
-1. Clone the repository `git clone https://github.com/msutor/install-asterisk.git`
+1. Clone the repository `git clone https://github.com/mbsutor/install-asterisk.git`
 2. Change the specific hosts in the `test.inventory` file.
 3. Run: `ansible-playbook -i test.inventory test.yml`
 
@@ -48,4 +48,4 @@ Author information
 ------------------
 
 Mikhail Sutorikhin
-@msutor
+@mbsutor
