@@ -1,0 +1,6 @@
+.idea/
+inventory.yml
+*.retry
+venv/
+galaxy-roles/
+.vault_pass.txt

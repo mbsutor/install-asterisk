@@ -1,0 +1,8 @@
+---
+# vars file for asterisk
+asterisk_user: asterisk
+asterisk_group: asterisk
+asterisk_srcdir: /usr/src/asterisk/
+asterisk_url: http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-20-current.tar.gz
+asterisk_url_sounds: http://downloads.asterisk.org/pub/telephony/sounds/asterisk-core-sounds-ru-ulaw-current.tar.gz
+asterisk_path_sound: /var/lib/asterisk/sounds/ru

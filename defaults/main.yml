@@ -1,0 +1,3 @@
+---
+# defaults file for asterisk
+use_pjsip: true

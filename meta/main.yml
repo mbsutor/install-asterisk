@@ -1,0 +1,13 @@
+galaxy_info:
+  author: Mikhail Sutorikhin
+  description: Installs Asterisk from source on Centos
+  license: MIT
+  min_ansible_version: 2.9
+
+  galaxy_tags:
+    - networking
+    - packaging
+    - system
+
+
+dependencies: []

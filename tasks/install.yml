@@ -1,0 +1,34 @@
+- include_tasks: pjsip.yml
+  when: (use_pjsip is defined) and (use_pjsip != false)
+
+- name: Remove existing install source dir
+  file: "path={{ asterisk_srcdir }} state=absent"
+
+- name: Create install source dir
+  file: "path={{ asterisk_srcdir }} state=directory"
+
+- name: Download and extract Asterisk source
+  unarchive: "src={{ asterisk_url }} dest={{ asterisk_srcdir }} remote_src=yes extra_opts=--strip-components=1"
+
+- name: Build Asterisk from source
+  command: "{{ item }} chdir={{ asterisk_srcdir }}"
+  with_items:
+    - ./configure --libdir=/usr/lib64 --with-jansson-bundled
+    - make menuselect.makeopts
+    - sed -i -e 's/res_snmp//' menuselect.makeopts
+    - sed -i -e 's/chan_sip//' menuselect.makeopts
+    - sed -i -e 's/res_http_websocket//' menuselect.makeopts
+    - make
+    - make uninstall
+    - make install
+    - make config
+    - make samples
+
+- name: Create install dir
+  file: "path={{ asterisk_srcdir }} state=directory"
+
+- name: Create sounds dir
+  file: "path={{ asterisk_path_sound }} state=directory"
+
+- name: Download and extract Asterisk sounds
+  unarchive: "src={{ asterisk_url_sounds }} dest={{ asterisk_path_sound }} remote_src=yes extra_opts=--strip-components=1"
