@@ -8,7 +8,7 @@
   file: "path={{ asterisk_srcdir }} state=directory"
 
 - name: Download and extract Asterisk source
-  unarchive: "src={{ asterisk_url }} dest={{ asterisk_srcdir }} remote_src=yes extra_opts=--strip-components=1"
+  unarchive: "src={{ asterisk_url }} dest={{ asterisk_srcdir }} remote_src=yes extra_opts=--strip-components=1  validate_certs=no"
 
 - name: Build Asterisk from source
   command: "{{ item }} chdir={{ asterisk_srcdir }}"
@@ -31,4 +31,4 @@
   file: "path={{ asterisk_path_sound }} state=directory"
 
 - name: Download and extract Asterisk sounds
-  unarchive: "src={{ asterisk_url_sounds }} dest={{ asterisk_path_sound }} remote_src=yes extra_opts=--strip-components=1"
+  unarchive: "src={{ asterisk_url_sounds }} dest={{ asterisk_path_sound }} remote_src=yes extra_opts=--strip-components=1  validate_certs=no"
